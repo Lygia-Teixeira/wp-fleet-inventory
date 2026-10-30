@@ -1,0 +1,27 @@
+{
+  "_comment": "Exemplo ficticio. O segredo NUNCA fica neste arquivo: password vem de uma variavel de ambiente (secretEnv) ou a chave privada de um arquivo (privateKeyPath). npm run import-servers cifra o segredo (AES-256-GCM) e grava no SQLite.",
+  "servers": [
+    {
+      "label": "srv-01",
+      "host": "srv-01.example.com",
+      "port": 22,
+      "username": "inventory",
+      "auth": { "type": "key", "privateKeyPath": "./data/keys/srv-01_ed25519" }
+    },
+    {
+      "label": "srv-02",
+      "host": "192.0.2.20",
+      "port": 2222,
+      "username": "inventory",
+      "auth": { "type": "password", "secretEnv": "SRV02_SSH_PASSWORD" }
+    },
+    {
+      "label": "srv-03",
+      "host": "192.0.2.30",
+      "port": 22,
+      "username": "inventory",
+      "auth": { "type": "key", "privateKeyPath": "./data/keys/srv-03_ed25519" },
+      "discovery": { "findRoot": "/home", "findMaxDepth": 4 }
+    }
+  ]
+}

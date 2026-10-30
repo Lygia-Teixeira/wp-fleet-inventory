@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WP Fleet Inventory</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>WP Fleet Inventory</h1>
+    <p class="sub">Inventario agentless de instalacoes WordPress</p>
+  </header>
+
+  <main>
+    <form id="auth" class="bar" autocomplete="off">
+      <label for="token">Token da API</label>
+      <input id="token" type="password" placeholder="Bearer token" spellcheck="false">
+      <button type="submit">Conectar</button>
+      <span id="auth-msg" class="muted" role="status"></span>
+    </form>
+
+    <section class="bar" aria-label="Filtros">
+      <input id="q" type="search" placeholder="Filtrar por dominio, conta ou caminho">
+      <select id="status" aria-label="Status">
+        <option value="">Todos os status</option>
+        <option value="ok">ok</option>
+        <option value="suspended">suspended</option>
+        <option value="error">error</option>
+        <option value="unreachable">unreachable</option>
+      </select>
+      <select id="server" aria-label="Servidor"><option value="">Todos os servidores</option></select>
+      <button type="button" id="export-csv">Exportar CSV</button>
+      <button type="button" id="export-json">Exportar JSON</button>
+    </section>
+
+    <p id="summary" class="muted"></p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Servidor</th><th>Conta</th><th>Dominio</th><th>Docroot</th>
+            <th>WordPress</th><th>PHP</th><th>Status</th><th>Detalhe</th><th>Origem</th><th>Verificado em</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

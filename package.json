@@ -1,0 +1,29 @@
+{
+  "name": "wp-fleet-inventory",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Inventario agentless de sites WordPress em servidores Linux/cPanel via SSH - sem plugin nos sites.",
+  "license": "MIT",
+  "author": "Lygia Teixeira",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "demo": "node src/server.js --demo",
+    "collect": "node src/collector/run.js",
+    "import-servers": "node src/scripts/importServers.js",
+    "hash-password": "node src/scripts/hashPassword.js",
+    "gen-key": "node src/scripts/genKey.js",
+    "export": "node src/scripts/exportInventory.js",
+    "test": "node --test \"test/*.test.js\"",
+    "check": "node src/scripts/checkSyntax.js"
+  },
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "dotenv": "16.4.7",
+    "express": "4.21.2",
+    "ssh2": "1.16.0"
+  }
+}
